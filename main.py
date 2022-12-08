@@ -6,7 +6,7 @@ from tkinter import *
 Setting up the environment
 """
 
-Calc_Prac = Tk()
+#Calc_Prac = Tk()
 root = Tk()
 
 #setting the width x height
@@ -23,12 +23,11 @@ root.title("Calculator!!!!!!!!")
 """
 Defining the functions to make the calculator work
 """
-expression = ""
-input_text = StringVar()
+
 def press_button(item):
     global expression
     expression = expression + str(item)
-    input_text.set("")
+    input_text.set(expression)
 
 def press_clear():
     global expression
@@ -42,6 +41,8 @@ def press_equal():
     expression = ""
 
 
+expression = ""
+input_text = StringVar()
 
 """
 Setting up the actual application's look
@@ -75,7 +76,7 @@ plus = Button(button_frame, text = "+", fg = "black", width = 10, height = 3, bd
 point = Button(button_frame, text = ".", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee",
                cursor = "hand2", command = lambda: press_button(".")).grid(row = 4, column = 2, padx = 1, pady = 1)
 equals = Button(button_frame, text = "=", fg = "black", width = 10, height = 3, bd = 0, bg = "#eee",
-                cursor = "hand2", command = lambda: press_button()).grid(row = 4, column = 3, padx = 1, pady = 1)
+                cursor = "hand2", command = lambda: press_equal()).grid(row = 4, column = 3, padx = 1, pady = 1)
 
 #number buttons
 seven = Button(button_frame, text = "7", fg = "black", width = 10, height = 3, bd = 0, bg = "#fff",
@@ -99,3 +100,5 @@ three = Button(button_frame, text = "3", fg = "black", width = 10, height = 3, b
 
 zero = Button(button_frame, text = "0", fg = "black", width = 21, height = 3, bd = 0, bg = "#fff",
               cursor = "hand2", command = lambda: press_button(0)).grid(row = 4, column = 0, columnspan = 2, padx = 1, pady = 1)
+
+window.mainloop()
